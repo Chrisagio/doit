@@ -12,9 +12,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tabelView: UITableView!
     
+    var tasks : [Task] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        tasks = makeTasks()
+        
         
         tabelView.dataSource = self
         tabelView.delegate = self
@@ -31,5 +36,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
 
+    func makeTasks() -> [Task] {
+        let task1 = Task()
+        task1.name = "Walk the dog"
+        task1.important = false
+        
+        let task2 = Task()
+        task2.name = "Buy Cheese"
+        task2.important = true
+        
+        let task3 = Task()
+        task3.name = "Mow the lawn"
+        task3.important = true
+        
+        return [task1, task2, task3]
+    }
 }
 
